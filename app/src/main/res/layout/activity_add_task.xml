@@ -44,6 +44,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_date"
+        android:hint="Dia que cê pode me atender"
+        app:startIconDrawable="@drawable/ic_calendar"
         android:layout_width="0dp"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
@@ -51,10 +54,32 @@
         app:layout_constraintTop_toBottomOf="@id/til_name"
         android:layout_height="wrap_content">
     <com.google.android.material.textfield.TextInputEditText
-
-
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:focusable="false"
+        />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_clock"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="E que horas?"
+            app:startIconDrawable="@drawable/ic_clock"
+            app:layout_constraintTop_toBottomOf="@id/til_date"
+            app:layout_constraintStart_toStartOf="@id/guide_start"
+            app:layout_constraintEnd_toEndOf="@id/guide_end"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:inputType="none"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
