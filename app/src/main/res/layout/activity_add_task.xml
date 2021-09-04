@@ -45,14 +45,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_date"
-        android:hint="Dia que cê pode me atender"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:startIconDrawable="@drawable/ic_calendar"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Dia"
         app:layout_constraintStart_toStartOf="@id/guide_start"
-        app:layout_constraintEnd_toEndOf="@id/guide_end"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintEnd_toStartOf="@id/til_clock"
         app:layout_constraintTop_toBottomOf="@id/til_name"
-        android:layout_height="wrap_content">
+       >
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,11 +69,12 @@
             android:id="@+id/til_clock"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:hint="E que horas?"
             app:startIconDrawable="@drawable/ic_clock"
-            app:layout_constraintTop_toBottomOf="@id/til_date"
-            app:layout_constraintStart_toStartOf="@id/guide_start"
-            app:layout_constraintEnd_toEndOf="@id/guide_end"
+           app:layout_constraintTop_toTopOf="@id/til_date"
+            app:layout_constraintStart_toEndOf="@id/til_date"
+            app:layout_constraintEnd_toEndOf="@id/guide_end">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,8 +82,30 @@
             android:inputType="none"/>
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_cancel"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:text="Num vô quere mais"
+        android:textColor="@color/Marrom_claro"
+        android:textAllCaps="false"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btn_make"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        />
 
-
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_make"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:text="Nesse dia memo"
+        android:textColor="@color/Marrom_Escuro"
+        android:textAllCaps="false"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:focusable="false"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
