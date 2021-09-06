@@ -6,11 +6,11 @@
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
-        app:title="Quando te vejo?"
-        app:navigationIcon="@drawable/ic_arrow_back"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:title="@string/label_new_task" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guide_start"
@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         android:layout_marginTop="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:hint="Meu nome é "
+        android:hint="@string/label_my_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content">
     <com.google.android.material.textfield.TextInputEditText
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:hint="Dia"
+        android:hint="@string/label_day"
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintEnd_toStartOf="@id/til_clock"
         app:layout_constraintTop_toBottomOf="@id/til_name"
@@ -70,7 +70,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="E que horas?"
+            android:hint="@string/label_hours"
             app:startIconDrawable="@drawable/ic_clock"
            app:layout_constraintTop_toTopOf="@id/til_date"
             app:layout_constraintStart_toEndOf="@id/til_date"
@@ -85,7 +85,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_cancel"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:text="Num vô quere mais"
+        android:text="@string/label_cancel"
         android:textColor="@color/Marrom_claro"
         android:textAllCaps="false"
         android:layout_width="0dp"
@@ -101,7 +101,7 @@
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="16dp"
-        android:text="Nesse dia memo"
+        android:text="@string/label_confirm"
         android:textColor="@color/Marrom_Escuro"
         android:textAllCaps="false"
         android:layout_width="0dp"

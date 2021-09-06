@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Lembretes</string>
+    <string name="label_new_task">Quando te vejo?</string>
+    <string name="label_my_name">Meu nome é</string>
+    <string name="label_day">Dia</string>
+    <string name="label_hours">E que horas?</string>
+    <string name="label_cancel">Num vô quere mais</string>
+    <string name="label_confirm">Nessa data memo</string>
 </resources>
