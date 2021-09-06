@@ -8,6 +8,7 @@ import com.filipe.lembretes.databinding.ActivityAddTaskBinding
 import com.filipe.lembretes.extesions.format
 import com.filipe.lembretes.extesions.text
 import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.timepicker.MaterialTimePicker
 import java.util.*
 
 class AddTaskActivity: AppCompatActivity() {
@@ -34,6 +35,12 @@ class AddTaskActivity: AppCompatActivity() {
                 }
                 datePicker.show(supportFragmentManager, "DATE_PICKER_TAG")
             }
-        }
+            binding.tilClock.editText?.setOnClickListener{
+                val timePicker = MaterialTimePicker.Builder().build()
+                    timePicker.addOnPositiveButtonClickListener {
 
+                    }
+                timePicker.show(supportFragmentManager, null)
+            }
+        }
 }
