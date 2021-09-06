@@ -13,7 +13,7 @@
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".ui.AddTaskActivity"
-            android:exported="false" >
+            android:exported="true" >
 
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
