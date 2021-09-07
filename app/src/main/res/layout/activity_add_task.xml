@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -37,7 +37,7 @@
         android:hint="@string/label_my_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content">
-    <com.google.android.material.textfield.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:inputType="textPersonName"
             android:layout_height="wrap_content"/>
@@ -55,26 +55,26 @@
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintEnd_toStartOf="@id/til_clock"
         app:layout_constraintTop_toBottomOf="@id/til_name"
-       >
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="none"
-        android:focusable="false"
-        />
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:focusable="false"
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_clock"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="@string/label_hours"
-            app:startIconDrawable="@drawable/ic_clock"
-           app:layout_constraintTop_toTopOf="@id/til_date"
-            app:layout_constraintStart_toEndOf="@id/til_date"
-            app:layout_constraintEnd_toEndOf="@id/guide_end">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_clock"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="@string/label_hours"
+        app:startIconDrawable="@drawable/ic_clock"
+        app:layout_constraintTop_toTopOf="@id/til_date"
+        app:layout_constraintStart_toEndOf="@id/til_date"
+        app:layout_constraintEnd_toEndOf="@id/guide_end">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,5 +107,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:focusable="false"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

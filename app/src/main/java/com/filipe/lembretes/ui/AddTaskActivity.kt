@@ -5,8 +5,10 @@ import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.filipe.lembretes.databinding.ActivityAddTaskBinding
+import com.filipe.lembretes.datasource.TaskDataSource
 import com.filipe.lembretes.extesions.format
 import com.filipe.lembretes.extesions.text
+import com.filipe.lembretes.model.Task
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
@@ -18,7 +20,6 @@ class AddTaskActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -41,7 +42,9 @@ class AddTaskActivity: AppCompatActivity() {
                     .setTimeFormat(TimeFormat.CLOCK_24H)
                     .build()
                     timePicker.addOnPositiveButtonClickListener {
-                        binding.tilClock.text = "${timePicker.hour} ${timePicker.minute}"
+                       val minute = if (timePicker.minute in 0..9) "${timePicker.minute}" else timePicker.minute
+                        val hour = if (timePicker.hour in 0..9) "${timePicker.hour}" else timePicker.hour
+                        binding.tilClock.text = "$hour:$minute"
                     }
                 timePicker.show(supportFragmentManager, null)
             }
@@ -50,7 +53,13 @@ class AddTaskActivity: AppCompatActivity() {
             }
 
             binding.btnMake.setOnClickListener {
-
+                val task = Task(
+                    title = binding.tilName.text,
+                    date = binding.tilDate.text,
+                    hour = binding.tilClock.text
+                )
+                TaskDataSource.insertTask(task)
+                Log.e("TAG", "insertListeners: " + TaskDataSource.getList())
             }
         }
 }

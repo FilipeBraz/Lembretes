@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Lembretes</string>
-    <string name="label_new_task">Quando te vejo?</string>
+    <string name="label_new_task">Quando vejo oce</string>
     <string name="label_my_name">Meu nome é</string>
     <string name="label_day">Dia</string>
-    <string name="label_hours">E que horas?</string>
+    <string name="label_hours">E que hora</string>
     <string name="label_cancel">Num vô quere mais</string>
     <string name="label_confirm">Nessa data memo</string>
+    <string name="label_tasks">Agendamentos</string>
+    <string name="label_description_new_task">Novo Corte</string>
 </resources>

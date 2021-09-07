@@ -4,7 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_agendar_background.xml" value="0.18697916666666667" />
-        <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_add_task.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_agendar.xml" value="0.1" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_agendar_round.xml" value="0.1" />
