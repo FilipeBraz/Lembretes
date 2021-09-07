@@ -1,7 +1,6 @@
 package com.filipe.lembretes.ui
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.filipe.lembretes.databinding.ActivityAddTaskBinding
@@ -20,7 +19,7 @@ class AddTaskActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityAddTaskBinding.inflate(layoutInflater)
+        binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         insertListeners()
@@ -29,6 +28,7 @@ class AddTaskActivity: AppCompatActivity() {
 
         private fun insertListeners(){
             binding.tilDate.editText?.setOnClickListener {
+
                 val datePicker = MaterialDatePicker.Builder.datePicker().build()
                 datePicker.addOnPositiveButtonClickListener {
                     val timeZone = TimeZone.getDefault()
@@ -49,6 +49,9 @@ class AddTaskActivity: AppCompatActivity() {
                 timePicker.show(supportFragmentManager, null)
             }
             binding.btnCancel.setOnClickListener {
+                finish()
+            }
+            binding.toolbar.setOnClickListener{
                 finish()
             }
 

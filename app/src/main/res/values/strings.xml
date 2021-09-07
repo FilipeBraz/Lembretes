@@ -6,6 +6,6 @@
     <string name="label_hours">E que hora</string>
     <string name="label_cancel">Num vô quere mais</string>
     <string name="label_confirm">Nessa data memo</string>
-    <string name="label_tasks">Agendamentos</string>
+    <string name="label_tasks">Trampos Marcados</string>
     <string name="label_description_new_task">Novo Corte</string>
 </resources>
