@@ -1,9 +1,11 @@
 package com.filipe.lembretes.ui
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.filipe.lembretes.databinding.ActivityMainBinding
+import com.filipe.lembretes.datasource.TaskDataSource
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,12 +18,36 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.rvTasks.adapter = adapter
+        updateList()
 
         insertListeners()
     }
     private fun insertListeners(){
         binding.fab.setOnClickListener{
-            startActivity(Intent(this, AddTaskActivity::class.java))
+            startActivityForResult(Intent(this, AddTaskActivity::class.java), CREATE_NEW_TASK)
         }
+        adapter.listenerEdit = {
+            val intent = Intent(this, AddTaskActivity::class.java)
+            intent.putExtra(AddTaskActivity.TASK_ID, it.id)
+            startActivityForResult(intent, CREATE_NEW_TASK)
+        }
+        adapter.listenerDelete = {
+
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == CREATE_NEW_TASK && resultCode == Activity.RESULT_OK){
+
+        }
+    }
+
+    private fun updateList(){
+        adapter.submitList(TaskDataSource.getList())
+    }
+
+    companion object{
+        private const val CREATE_NEW_TASK = 1000
     }
 }

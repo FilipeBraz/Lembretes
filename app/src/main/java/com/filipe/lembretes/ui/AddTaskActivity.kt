@@ -1,5 +1,6 @@
 package com.filipe.lembretes.ui
 
+import android.app.Activity
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -13,14 +14,26 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import java.util.*
 
+
+
 class AddTaskActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityAddTaskBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityAddTaskBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if(intent.hasExtra(TASK_ID)){
+            val taskId = intent.getIntExtra(TASK_ID, 0)
+            TaskDataSource.findById(taskId)?.let {
+                binding.tilName.text = it.name
+                binding.tilDate.text = it.date
+                binding.tilClock.text = it.clock
+            }
+        }
 
         insertListeners()
 
@@ -62,7 +75,12 @@ class AddTaskActivity: AppCompatActivity() {
                     hour = binding.tilClock.text
                 )
                 TaskDataSource.insertTask(task)
+
+                setResult(Activity.RESULT_OK)
                 finish()
             }
         }
+    companion object{
+        const val TASK_ID = "task_id"
+    }
 }

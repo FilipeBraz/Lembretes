@@ -4,13 +4,18 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.ViewParent
 import android.widget.ListAdapter
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.filipe.lembretes.R
 import com.filipe.lembretes.databinding.ItemTaskBinding
 import com.filipe.lembretes.model.Task
 import java.text.FieldPosition
 
 class TaskListAdapter : androidx.recyclerview.widget.ListAdapter<Task, TaskListAdapter.TaskViewHolder>(DiffCallback()){
+
+    var listenerEdit : (Task) -> Unit = {}
+    var listenerDelete : (Task) -> Unit = {}
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -24,13 +29,30 @@ class TaskListAdapter : androidx.recyclerview.widget.ListAdapter<Task, TaskListA
     }
 
 
-    class TaskViewHolder(
+    inner class TaskViewHolder(
         private val binding: ItemTaskBinding
     ) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(item: Task) {
             binding.tvTitle.text = item.title
             binding.tvDate.text = "${item.date} ${item.hour}"
+            binding.ivMore.setOnClickListener{
+               showPopup(item)
+            }
+        }
+
+        private fun showPopup(item: Task){
+            val ivMore = binding.ivMore
+            val popupMenu = PopupMenu(ivMore.context, ivMore)
+            popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener {
+                when (it.itemId){
+                    R.id.action_edit -> listenerEdit(item)
+                    R.id.action_delete -> listenerDelete(item)
+                }
+                return@setOnMenuItemClickListener true
+            }
+            popupMenu.show()
         }
 
     }

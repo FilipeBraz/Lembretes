@@ -8,4 +8,6 @@
     <string name="label_confirm">Nessa data memo</string>
     <string name="label_tasks">Trampos Marcados</string>
     <string name="label_description_new_task">Novo Corte</string>
+    <string name="editar">Editar</string>
+    <string name="apagar">Apagar</string>
 </resources>
