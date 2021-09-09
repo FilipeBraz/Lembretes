@@ -62,7 +62,7 @@ class AddTaskActivity: AppCompatActivity() {
                     hour = binding.tilClock.text
                 )
                 TaskDataSource.insertTask(task)
-                Log.e("TAG", "insertListeners: " + TaskDataSource.getList())
+                finish()
             }
         }
 }
