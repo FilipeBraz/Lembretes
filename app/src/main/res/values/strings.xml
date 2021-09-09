@@ -10,4 +10,5 @@
     <string name="label_description_new_task">Novo Corte</string>
     <string name="editar">Editar</string>
     <string name="apagar">Apagar</string>
+    <string name="you_dont_have_tasks">Eita nóis\nvocê está desocupado</string>
 </resources>

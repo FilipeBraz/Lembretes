@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.filipe.lembretes.databinding.ActivityMainBinding
 import com.filipe.lembretes.datasource.TaskDataSource
 
@@ -21,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         updateList()
 
         insertListeners()
+
+        //DATA STORE
+        //ROOM
     }
     private fun insertListeners(){
         binding.fab.setOnClickListener{
@@ -39,13 +43,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == CREATE_NEW_TASK && resultCode == Activity.RESULT_OK){
-
-        }
+        if (requestCode == CREATE_NEW_TASK && resultCode == Activity.RESULT_OK) updateList()
     }
 
     private fun updateList(){
-        adapter.submitList(TaskDataSource.getList())
+        val list = TaskDataSource.getList()
+        if (list.isEmpty())
+            binding.includeEmpty.emptyState.visibility = if (list.isEmpty()) View.VISIBLE
+        else
+            View.GONE
+
+        adapter.submitList(list)
     }
 
     companion object{
